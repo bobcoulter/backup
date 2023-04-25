@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Backup using rsync created 02/07/2023
+# modified to use --exclude-from=backup.exclude 02/09/2023
+
+# remove old tmp/rlog file
+rm tmp/rlog
+
+rsync -a --log-file=tmp/rlog --exclude-from=/usr/local/bin/backup-exclude /home/bob/ /backup/home$(date +%Y_%m_%d)
+rsync -a --log-file=tmp/rlog /usr/local/bin/ /backup/usr/local/bin
