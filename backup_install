@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# copy backup and backup-exclude to /usr/local/bin
+sudo cp ~bob/local_programs/rsync_backup/backup /usr/local/bin/backup
+sudo cp ~bob/local_programs/rsync_backup/backup-exclude /usr/local/bin/backup-exclude
+
+# copy systemd files to /etc/systemd/system
+sudo cp ~bob/local_programs/rsync_backup/mybackup.service /etc/systemd/system/mybackup.service
+sudo cp ~bob/local_programs/rsync_backup/mybackup.timer /etc/systemd/system/mybackup.timer
+
+# create log file path and logfile
+mkdir ~bob/tmp
+touch ~bob/tmp/rlog
+
+# start systemd to run backup unattended
+echo
+echo now run the systemd commands to either start or restart mybackup
+echo
+

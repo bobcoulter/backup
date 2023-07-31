@@ -7,4 +7,6 @@
 rm /home/bob/tmp/rlog
 
 rsync -a --log-file=/home/bob/tmp/rlog --exclude-from=/usr/local/bin/backup-exclude /home/bob/ /backup/home$(date +%Y_%m_%d)
-# rsync -a --log-file=/home/bob/tmp/rlog /usr/local/bin/ /backup/usr/local/bin
+
+# remove backup files older than 10 days
+rm -rf /backup/home$(date --date="10 days ago" +"%Y_%m_%d")
