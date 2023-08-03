@@ -4,7 +4,7 @@
 # modified to use --exclude-from=backup.exclude 02/09/2023
 
 # remove old tmp/rlog file
-rm /home/bob/tmp/rlog
+rm -rf /home/bob/tmp/rlog
 
 rsync -a --log-file=/home/bob/tmp/rlog --exclude-from=/usr/local/bin/backup-exclude /home/bob/ /backup/home$(date +%Y_%m_%d)
 
